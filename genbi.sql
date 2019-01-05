@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 05 Jan 2019 pada 11.27
--- Versi Server: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Host: localhost
+-- Generation Time: Jan 05, 2019 at 03:43 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `absensis`
+-- Table structure for table `absensis`
 --
 
 CREATE TABLE `absensis` (
@@ -38,7 +38,7 @@ CREATE TABLE `absensis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `absensis`
+-- Dumping data for table `absensis`
 --
 
 INSERT INTO `absensis` (`id`, `id_pertemuan`, `id_user`, `konfirmasi`, `created_at`, `updated_at`) VALUES
@@ -58,7 +58,7 @@ INSERT INTO `absensis` (`id`, `id_pertemuan`, `id_user`, `konfirmasi`, `created_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `activities`
+-- Table structure for table `activities`
 --
 
 CREATE TABLE `activities` (
@@ -76,7 +76,7 @@ CREATE TABLE `activities` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `artikels`
+-- Table structure for table `artikels`
 --
 
 CREATE TABLE `artikels` (
@@ -90,7 +90,7 @@ CREATE TABLE `artikels` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data`
+-- Table structure for table `data`
 --
 
 CREATE TABLE `data` (
@@ -124,16 +124,18 @@ CREATE TABLE `data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `data`
+-- Dumping data for table `data`
 --
 
 INSERT INTO `data` (`id`, `user_id`, `nama`, `nim`, `jenis_kelamin`, `universitas`, `fakultas`, `ipk`, `tempat_lahir`, `tanggal_lahir`, `agama`, `golongan_darah`, `suku_bangsa`, `alamat`, `no_hp`, `facebook`, `instagram`, `nama_ibu`, `nama_ayah`, `minat_bakat`, `keterampilan`, `potensi`, `aktivitas_sosial`, `bersedia_aktif`, `saran`, `created_at`, `updated_at`) VALUES
-(1, 1, 'tayo', '11', 'p', 'hsh', 'hshdv', 2.90, 'SHSJH', '2019-10-09', 'bhjh', 'jjhh', 'hhjh', 'hhhj', 'hhhj', 'hhjjh', 'hhjhj', 'hhhjjh', 'hjjhhj', 'hhjh', 'hjhj', 'hjhj', 'hhj', 'hj', 'hjhj', '2018-12-30 13:23:48', '2018-12-30 13:23:48');
+(1, 1, 'tayo', '11', 'p', 'hsh', 'hshdv', 2.90, 'SHSJH', '2019-10-09', 'bhjh', 'jjhh', 'hhjh', 'hhhj', 'hhhj', 'hhjjh', 'hhjhj', 'hhhjjh', 'hjjhhj', 'hhjh', 'hjhj', 'hjhj', 'hhj', 'hj', 'hjhj', '2018-12-30 13:23:48', '2018-12-30 13:23:48'),
+(3, 7, 'sf', 'sdf', 'sdf', 'sdf', 'sdf', 3.40, 'fsdfs', '2019-01-05', 'sfdsdf', 'sdfsdf', 'fsdf', 'sdf', 'sdf', 'sdf', 'sdf', 'sdf', 'sdf', 'sdf', 'sdf', 'sdf', 'sdf', 'sdf', 'sdf', '2019-01-05 14:19:35', '2019-01-05 14:19:35'),
+(4, 8, 'punya rin', '3333', 'apache', 'dsfsdf', 'sdf', 3.00, 'sdfds', '2019-01-24', 'afsd', 'sdfsdf', 'dsfddsf', 'sdfddsf', 'sdfsd', 'sdfdsdf', 'sdfd', 'sdfsdf', 'sdfsd', 'sdf', 'sdfsdf', 'sfsdf', 'sdfsdf', 'sdfdsf', 'sdfsdf', '2019-01-05 14:23:09', '2019-01-05 14:23:09');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jenis_pertemuans`
+-- Table structure for table `jenis_pertemuans`
 --
 
 CREATE TABLE `jenis_pertemuans` (
@@ -144,7 +146,7 @@ CREATE TABLE `jenis_pertemuans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `jenis_pertemuans`
+-- Dumping data for table `jenis_pertemuans`
 --
 
 INSERT INTO `jenis_pertemuans` (`id`, `nama_pertemuan`, `created_at`, `updated_at`) VALUES
@@ -154,7 +156,7 @@ INSERT INTO `jenis_pertemuans` (`id`, `nama_pertemuan`, `created_at`, `updated_a
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -164,7 +166,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -181,7 +183,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -193,7 +195,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pertemuans`
+-- Table structure for table `pertemuans`
 --
 
 CREATE TABLE `pertemuans` (
@@ -207,7 +209,7 @@ CREATE TABLE `pertemuans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `pertemuans`
+-- Dumping data for table `pertemuans`
 --
 
 INSERT INTO `pertemuans` (`id`, `id_jenis_pertemuan`, `pertemuan`, `tanggal_pertemuan`, `tempat`, `created_at`, `updated_at`) VALUES
@@ -226,7 +228,7 @@ INSERT INTO `pertemuans` (`id`, `id_jenis_pertemuan`, `pertemuan`, `tanggal_pert
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `prestasis`
+-- Table structure for table `prestasis`
 --
 
 CREATE TABLE `prestasis` (
@@ -239,10 +241,23 @@ CREATE TABLE `prestasis` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `prestasis`
+--
+
+INSERT INTO `prestasis` (`id`, `user_id`, `nama_prestasi`, `tahun`, `tingkat`, `created_at`, `updated_at`) VALUES
+(1, 7, 'prestasi miku', '2039', 'Universitas', '2019-01-05 14:20:06', '2019-01-05 14:20:06'),
+(2, 7, 'another miku prestasi', '2020', 'Nasional', '2019-01-05 14:20:22', '2019-01-05 14:20:22'),
+(3, 8, 'prestasi rin', '2030', 'Universitas', '2019-01-05 14:21:56', '2019-01-05 14:22:28'),
+(4, 8, 'another rin prestasi', '3000', 'Universitas', '2019-01-05 14:22:18', '2019-01-05 14:22:18'),
+(5, 7, 'prestatsi miku yg kesekian kalinya', '3030', 'Universitas', '2019-01-05 14:37:46', '2019-01-05 14:39:11'),
+(6, 8, 'yay rin', '3434', 'Universitas', '2019-01-05 14:42:03', '2019-01-05 14:42:03'),
+(7, 7, 'yay miku', '3939', 'Universitas', '2019-01-05 14:42:24', '2019-01-05 14:42:24');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -252,22 +267,25 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `hak_akses` int(11) NOT NULL DEFAULT '0',
+  `data_id` int(10) DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `hak_akses`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'tayo', 'tayo@gmail.com', NULL, '$2y$10$V2VgMLdbTdvHLVdJ1fLso.wl7nfwKg1c0iIU8KiyWMmiprBHoj9eC', 0, 'gvcFJ8SGs3PzdNapxIUfLohSg2qDcILLMUu4QESzYc1mVE1nkeuIyt8RoquU', '2018-12-30 08:38:41', '2018-12-30 08:38:41'),
-(2, 'Norman Halilintar', 'noha@gmail.com', NULL, '$2y$10$FKamy70Gy6kj93AGY.EdQujQm33sIGnTD2fqqQsy7VBL9pv1oWKqu', 1, '9DeBG5CGabuX6F8QAGW9v2SDQWJt90tPiAzRZiFXV1FMPkPrgTeLKJa1JDgD', '2018-12-30 09:15:11', '2018-12-30 09:15:11'),
-(3, 'Khatami Hoax', 'khatami@hoax.com', NULL, '$2y$10$E3xcMz9PdWDgZPOhwKAh2Of8CsJ0Hlb0ExIilBUILBQtaU6gUMlRe', 0, 'FfAy56BhyVtHrcMaXNDOxrnYVfRAj6zuHDlmGzCWQPUqzGly40bbrHXyaest', '2018-12-30 09:23:12', '2018-12-30 09:23:12'),
-(4, 'Mauladi', 'mauladi@gmail.com', NULL, '$2y$10$0eCF8JJc5kBDib3fsGlhOO7w4PiffLh7yju8fMDnJcoH.W/UffkSq', 2, 'mlal7RfTcEdMy4IxMEqreYDtW1SNfvXrwbgzzPOwmILJxDu4oebL8jtlLMYq', '2018-12-30 09:32:47', '2018-12-30 09:32:47'),
-(5, 'Yulia Oktaviani', 'yulia@gmail.com', NULL, '$2y$10$.snBNU/d5ix9psNoCqb9Oetfewtsj3i6dtY6K7BaGUNYqG6bSDS9W', 2, NULL, '2018-12-30 09:42:27', '2018-12-30 09:42:27'),
-(6, 'hey', 'hey@gmail.com', NULL, '$2y$10$3FjoomAAQ8yq.dH4aqILG.VrmOqMnj8dwh6lc4850CQcX7XfEFrS.', 0, NULL, '2018-12-30 14:37:11', '2018-12-30 14:37:11');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `hak_akses`, `data_id`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'tayo', 'tayo@gmail.com', NULL, '$2y$10$V2VgMLdbTdvHLVdJ1fLso.wl7nfwKg1c0iIU8KiyWMmiprBHoj9eC', 2, NULL, 'TpR5PCcXTFbrWULFSOmKCGsoShFKHegF8s3Efvd74Cuq6xopBG2YlKlkpFAB', '2018-12-30 08:38:41', '2018-12-30 08:38:41'),
+(2, 'Norman Halilintar', 'noha@gmail.com', NULL, '$2y$10$FKamy70Gy6kj93AGY.EdQujQm33sIGnTD2fqqQsy7VBL9pv1oWKqu', 1, NULL, '9DeBG5CGabuX6F8QAGW9v2SDQWJt90tPiAzRZiFXV1FMPkPrgTeLKJa1JDgD', '2018-12-30 09:15:11', '2018-12-30 09:15:11'),
+(3, 'Khatami Hoax', 'khatami@hoax.com', NULL, '$2y$10$E3xcMz9PdWDgZPOhwKAh2Of8CsJ0Hlb0ExIilBUILBQtaU6gUMlRe', 0, NULL, 'FfAy56BhyVtHrcMaXNDOxrnYVfRAj6zuHDlmGzCWQPUqzGly40bbrHXyaest', '2018-12-30 09:23:12', '2018-12-30 09:23:12'),
+(4, 'Mauladi', 'mauladi@gmail.com', NULL, '$2y$10$0eCF8JJc5kBDib3fsGlhOO7w4PiffLh7yju8fMDnJcoH.W/UffkSq', 2, NULL, 'mlal7RfTcEdMy4IxMEqreYDtW1SNfvXrwbgzzPOwmILJxDu4oebL8jtlLMYq', '2018-12-30 09:32:47', '2018-12-30 09:32:47'),
+(5, 'Yulia Oktaviani', 'yulia@gmail.com', NULL, '$2y$10$.snBNU/d5ix9psNoCqb9Oetfewtsj3i6dtY6K7BaGUNYqG6bSDS9W', 2, NULL, NULL, '2018-12-30 09:42:27', '2018-12-30 09:42:27'),
+(6, 'hey', 'hey@gmail.com', NULL, '$2y$10$3FjoomAAQ8yq.dH4aqILG.VrmOqMnj8dwh6lc4850CQcX7XfEFrS.', 0, NULL, NULL, '2018-12-30 14:37:11', '2018-12-30 14:37:11'),
+(7, 'Hatsune Miku', 'miku@hatsune.com', NULL, '$2y$10$o10AF7oNVRY.1u9gM46OqOClwt40kZU2caJGWrv/2gyiozrSwIjxW', 0, NULL, 'Grt8IeVX32FbzSni5wki3U4J6My1YGEHLPa4sVbfgXDccZr58KPoHSKJEn7P', '2019-01-05 13:51:40', '2019-01-05 13:51:40'),
+(8, 'Kagamine Rin', 'rin@kagamine.com', NULL, '$2y$10$zn3n98TBbO38dbOi0q5Dq.mIPJj.2mKhYLVnYy6SJCjxXaF0Q3Awi', 0, NULL, '0CXk2AvNFhYFyTrXw7aj7VI9987IxUHCOTDGPFpCjvxUBwQtlcUC9dL3wAva', '2019-01-05 14:21:12', '2019-01-05 14:21:12');
 
 --
 -- Indexes for dumped tables
@@ -358,7 +376,7 @@ ALTER TABLE `artikels`
 -- AUTO_INCREMENT for table `data`
 --
 ALTER TABLE `data`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `jenis_pertemuans`
@@ -382,39 +400,39 @@ ALTER TABLE `pertemuans`
 -- AUTO_INCREMENT for table `prestasis`
 --
 ALTER TABLE `prestasis`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `absensis`
+-- Constraints for table `absensis`
 --
 ALTER TABLE `absensis`
   ADD CONSTRAINT `absensis_id_pertemuan_foreign` FOREIGN KEY (`id_pertemuan`) REFERENCES `pertemuans` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `absensis_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `data`
+-- Constraints for table `data`
 --
 ALTER TABLE `data`
   ADD CONSTRAINT `data_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `pertemuans`
+-- Constraints for table `pertemuans`
 --
 ALTER TABLE `pertemuans`
   ADD CONSTRAINT `pertemuans_id_jenis_pertemuan_foreign` FOREIGN KEY (`id_jenis_pertemuan`) REFERENCES `jenis_pertemuans` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `prestasis`
+-- Constraints for table `prestasis`
 --
 ALTER TABLE `prestasis`
   ADD CONSTRAINT `prestasis_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;

@@ -10,8 +10,10 @@ class PrestasiController extends Controller
 {
     public function index()
     {
-        $prestasis = Prestasi::all();
-    	return view('prestasi.index', compact('prestasis'));
+        $user_id = Auth::user()->id;
+        $prestasis = Prestasi::where('user_id', $user_id)->orderBy('tahun', 'asc')->get();
+        //return $prestasis;
+        return view('prestasi.index', compact('prestasis'));
     }
 
     public function create()

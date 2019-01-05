@@ -35,7 +35,7 @@ class User extends Authenticatable
     }
 
     public function prestasi(){
-    return $this->hasMany('App\Prestasi');
-}
- 
+        return $this->hasMany('App\Prestasi');
+    }
+
 }

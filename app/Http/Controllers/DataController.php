@@ -12,7 +12,13 @@ class DataController extends Controller
     public function index()
     {
         $user = User::find(Auth::id());
-    	return view('datapribadi.index', compact('user'));
+
+        if($user->data) {
+            return view('datapribadi.index', compact('user'));
+        }else{
+            return redirect(route('datapribadi.edit'));
+        }
+    	
     }
 
     public function edit()
