@@ -294,7 +294,7 @@
                     
                     @if(Auth::user()->hak_akses >= 1)
                     <li >
-                      <a href="notebook.html"  >
+                      <a href="{{ route('artikel.index') }}"  >
                         <i class="fa fa-pencil icon">
                           <b class="bg-info"></b>
                         </i>

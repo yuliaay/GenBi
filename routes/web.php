@@ -15,9 +15,7 @@ Route::get('/page', function () {
     return view('layouts/home');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@home')->name('home');
 
 
 
@@ -98,6 +96,8 @@ Route::group(['middleware' => ['LoginAuth']], function () {
     //route untuk menambahkan pertemuan
     Route::post('/pertemuan_store', 'PertemuanController@store')->name('pertemuan.store');
 
+    Route::get('/artikel/{artikel}', 'ArtikelController@show')->name('artikel.show');
+
     //routes untuk menampilkan form tambah artikel
     Route::get('/artikel_create', 'ArtikelController@create')->name('artikel.create');
     //route untuk menampilkan artikel 
@@ -109,7 +109,7 @@ Route::group(['middleware' => ['LoginAuth']], function () {
     //route untuk update artikel 
     Route::patch('/artikel_edit/{artikel}', 'ArtikelController@update')->name('artikel.update');
     //route untuk delete artikel 
-    Route::delete('/artikel_delete/{artikel}', 'ArtikelController@destroy')->name('artikel.destroy');
+    Route::get('/artikel_delete/{artikel}', 'ArtikelController@destroy')->name('artikel.destroy');
 
 
 });
@@ -155,13 +155,13 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-Route::get('/artikel', function () {
-    return view('artikel.index');
-});
+// Route::get('/artikel', function () {
+//     return view('artikel.index');
+// });
 
-Route::get('/artikel_tambah', function () {
-    return view('artikel.create');
-});
+// Route::get('/artikel_tambah', function () {
+//     return view('artikel.create');
+// });
 
 Route::get('/rekapabsensi', function () {
     return view('rekap_absensi.index');

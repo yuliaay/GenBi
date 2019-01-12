@@ -12,7 +12,9 @@
                   Artikel
                 </header>
                 <div class="panel-body">
-                  <form class="form-horizontal" method="get">
+                  <form class="form-horizontal" method="post" action="{{ route('artikel.store') }}" enctype="multipart/form-data">
+
+                    {{ csrf_field() }}
 
                     <div class="form-group">
                       <div class="col-sm-10">
@@ -30,10 +32,10 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Kategori</label>
                       <div class="col-sm-10">
-                        <select type="text"  class="form-control" placeholder="Tingkat">
+                        <select type="text"  class="form-control" placeholder="Tingkat" name="kategori">
                           <option value="Universitas"> Universitas </option>
                           <option value="Nasional"> Nasional </option>
-                          <option value="International"> International </option>
+                          <option value="Internasional"> Internasional </option>
                         </select>
                       </div>
                     </div>
@@ -41,7 +43,7 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Konten</label>
                       <div class="col-sm-10">
-                       <textarea name="content" rows="5" class="form-control" placeholder="Post Content"></textarea>
+                       <textarea name="konten" rows="5" class="form-control" placeholder="Post Content"></textarea>
                       </div>
                     </div>
 
@@ -49,7 +51,7 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label">File</label>
                       <div class="col-sm-10">
-                        <input type="file"  class="form-control" placeholder="file" name="file">
+                        <input type="file"  class="form-control" placeholder="file" name="gambar" accept=".jpg, .jpeg, .png">
                       </div>
                     </div>
                     <br>

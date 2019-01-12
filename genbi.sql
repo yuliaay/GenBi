@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 05, 2019 at 03:43 PM
+-- Generation Time: Jan 12, 2019 at 02:41 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -82,10 +82,23 @@ CREATE TABLE `activities` (
 CREATE TABLE `artikels` (
   `id` int(10) UNSIGNED NOT NULL,
   `judul` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `isi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kategori` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `konten` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gambar` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `artikels`
+--
+
+INSERT INTO `artikels` (`id`, `judul`, `kategori`, `konten`, `gambar`, `created_at`, `updated_at`) VALUES
+(1, 'Hatsune Miku is the best', 'Universitas', 'some text', 'Screen Shot 2018-12-30 at 1.01.53 PM_1547298662.png', '2019-01-12 10:40:50', '2019-01-12 13:11:02'),
+(3, 'Text here', 'Internasional', 'I have no idea what to put here', 'Screen Shot 2018-12-30 at 11.27.07 PM_1547298651.png', '2019-01-12 11:00:48', '2019-01-12 13:38:32'),
+(7, 'Unsubscribe to T-series', 'Nasional', 'Unsubscribe to T-series', 'Screen Shot 2018-12-30 at 11.28.13 PM_1547298458.png', '2019-01-12 12:55:51', '2019-01-12 13:37:39'),
+(9, 'Subscribe to PewDiePie', 'Internasional', 'Subscribe to PewDiePie', 'Screen Shot 2018-12-30 at 12.58.47 PM_1547300243.png', '2019-01-12 13:37:23', '2019-01-12 13:37:23'),
+(10, 'Hai Yulia :)', 'Nasional', 'owowowowowowow', 'Screen Shot 2018-12-30 at 12.59.19 PM_1547300367.png', '2019-01-12 13:39:27', '2019-01-12 13:39:27');
 
 -- --------------------------------------------------------
 
@@ -278,13 +291,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `hak_akses`, `data_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'tayo', 'tayo@gmail.com', NULL, '$2y$10$V2VgMLdbTdvHLVdJ1fLso.wl7nfwKg1c0iIU8KiyWMmiprBHoj9eC', 2, NULL, 'TpR5PCcXTFbrWULFSOmKCGsoShFKHegF8s3Efvd74Cuq6xopBG2YlKlkpFAB', '2018-12-30 08:38:41', '2018-12-30 08:38:41'),
+(1, 'tayo', 'tayo@gmail.com', NULL, '$2y$10$V2VgMLdbTdvHLVdJ1fLso.wl7nfwKg1c0iIU8KiyWMmiprBHoj9eC', 2, NULL, 'Ja3yXjk3slgbjKzzHxdyC6aBVy5n5xCBUDq8Ri1XN193nu3Pr0y7IPFh9Hdi', '2018-12-30 08:38:41', '2018-12-30 08:38:41'),
 (2, 'Norman Halilintar', 'noha@gmail.com', NULL, '$2y$10$FKamy70Gy6kj93AGY.EdQujQm33sIGnTD2fqqQsy7VBL9pv1oWKqu', 1, NULL, '9DeBG5CGabuX6F8QAGW9v2SDQWJt90tPiAzRZiFXV1FMPkPrgTeLKJa1JDgD', '2018-12-30 09:15:11', '2018-12-30 09:15:11'),
 (3, 'Khatami Hoax', 'khatami@hoax.com', NULL, '$2y$10$E3xcMz9PdWDgZPOhwKAh2Of8CsJ0Hlb0ExIilBUILBQtaU6gUMlRe', 0, NULL, 'FfAy56BhyVtHrcMaXNDOxrnYVfRAj6zuHDlmGzCWQPUqzGly40bbrHXyaest', '2018-12-30 09:23:12', '2018-12-30 09:23:12'),
 (4, 'Mauladi', 'mauladi@gmail.com', NULL, '$2y$10$0eCF8JJc5kBDib3fsGlhOO7w4PiffLh7yju8fMDnJcoH.W/UffkSq', 2, NULL, 'mlal7RfTcEdMy4IxMEqreYDtW1SNfvXrwbgzzPOwmILJxDu4oebL8jtlLMYq', '2018-12-30 09:32:47', '2018-12-30 09:32:47'),
 (5, 'Yulia Oktaviani', 'yulia@gmail.com', NULL, '$2y$10$.snBNU/d5ix9psNoCqb9Oetfewtsj3i6dtY6K7BaGUNYqG6bSDS9W', 2, NULL, NULL, '2018-12-30 09:42:27', '2018-12-30 09:42:27'),
 (6, 'hey', 'hey@gmail.com', NULL, '$2y$10$3FjoomAAQ8yq.dH4aqILG.VrmOqMnj8dwh6lc4850CQcX7XfEFrS.', 0, NULL, NULL, '2018-12-30 14:37:11', '2018-12-30 14:37:11'),
-(7, 'Hatsune Miku', 'miku@hatsune.com', NULL, '$2y$10$o10AF7oNVRY.1u9gM46OqOClwt40kZU2caJGWrv/2gyiozrSwIjxW', 0, NULL, 'Grt8IeVX32FbzSni5wki3U4J6My1YGEHLPa4sVbfgXDccZr58KPoHSKJEn7P', '2019-01-05 13:51:40', '2019-01-05 13:51:40'),
+(7, 'Hatsune Miku', 'miku@hatsune.com', NULL, '$2y$10$V2VgMLdbTdvHLVdJ1fLso.wl7nfwKg1c0iIU8KiyWMmiprBHoj9eC', 0, NULL, 'OWyUP4zsxhFf2fiDdulGA22Zd0AjKa4ABXkjgz69TgHmB7aHGdID4zHPeMGX', '2019-01-05 13:51:40', '2019-01-05 13:51:40'),
 (8, 'Kagamine Rin', 'rin@kagamine.com', NULL, '$2y$10$zn3n98TBbO38dbOi0q5Dq.mIPJj.2mKhYLVnYy6SJCjxXaF0Q3Awi', 0, NULL, '0CXk2AvNFhYFyTrXw7aj7VI9987IxUHCOTDGPFpCjvxUBwQtlcUC9dL3wAva', '2019-01-05 14:21:12', '2019-01-05 14:21:12');
 
 --
@@ -370,7 +383,7 @@ ALTER TABLE `activities`
 -- AUTO_INCREMENT for table `artikels`
 --
 ALTER TABLE `artikels`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `data`
