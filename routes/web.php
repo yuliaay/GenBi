@@ -98,6 +98,19 @@ Route::group(['middleware' => ['LoginAuth']], function () {
     //route untuk menambahkan pertemuan
     Route::post('/pertemuan_store', 'PertemuanController@store')->name('pertemuan.store');
 
+    //routes untuk menampilkan form tambah artikel
+    Route::get('/artikel_create', 'ArtikelController@create')->name('artikel.create');
+    //route untuk menampilkan artikel 
+    Route::get('/artikel', 'ArtikelController@index')->name('artikel.index');
+    //route untuk menambahkan artikel 
+    Route::post('/artikel_store', 'ArtikelController@store')->name('artikel.store');
+    //route untuk menampilkan form edit artikel 
+    Route::get('/artikel_edit/{artikel}', 'ArtikelController@edit')->name('artikel.edit');
+    //route untuk update artikel 
+    Route::patch('/artikel_edit/{artikel}', 'ArtikelController@update')->name('artikel.update');
+    //route untuk delete artikel 
+    Route::delete('/artikel_delete/{artikel}', 'ArtikelController@destroy')->name('artikel.destroy');
+
 
 });
 
