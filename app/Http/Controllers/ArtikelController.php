@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
+use Yajra\DataTables\Facades\DataTables;
 use App\Artikel;
 
 class ArtikelController extends Controller
@@ -12,8 +13,19 @@ class ArtikelController extends Controller
 
     public function index()
     {
-        $articles = Artikel::all();
         return view('artikel.index', compact('articles'));
+    }
+
+    public function get_datatable()
+    {
+        // Using Eloquent
+        return Datatables::eloquent(Artikel::query())
+        ->addIndexColumn()
+        ->addColumn('aksi', function(Artikel $art) {
+            return view('includes.action_buttons.article', compact('art'));
+        })
+        ->rawColumns(['aksi'])
+        ->make(true);
     }
 
     public function create()

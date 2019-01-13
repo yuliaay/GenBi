@@ -1,48 +1,21 @@
 @extends('../layouts.layout')
 
 @section('content')
-<!DOCTYPE html>
-<html>
-<head>
-	<title> testing </title>
-</head>
-<body>
-  <section class="panel panel-default">
-    <header class="panel-heading">
-      Responsive Table
-    </header>
-    <div class="row wrapper">
-      <div class="col-sm-5 m-b-xs">
-        <select class="input-sm form-control input-s-sm inline v-middle">
-          <option value="0">Bulk action</option>
-          <option value="1">Delete selected</option>
-          <option value="2">Bulk edit</option>
-          <option value="3">Export</option>
-        </select>
-        <button class="btn btn-sm btn-default">Apply</button>                
-      </div>
-      <div class="col-sm-4 m-b-xs">
-        <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-sm btn-default active">
-            <input type="radio" name="options" id="option1"> Day
-          </label>
-          <label class="btn btn-sm btn-default">
-            <input type="radio" name="options" id="option2"> Week
-          </label>
-          <label class="btn btn-sm btn-default">
-            <input type="radio" name="options" id="option2"> Month
-          </label>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <span class="input-group-btn">
-         <a href="{{ route('artikel.create') }}" class="btn btn-sm btn-primary pull-right" type="button">Tambah Artikel</a>
-       </span>
-     </div>
+
+<section class="panel panel-default">
+  <header class="panel-heading">
+    Responsive Table
+  </header>
+  <div class="row wrapper">
+    <div class="col-md-12">
+      <span class="input-group-btn">
+       <a href="{{ route('artikel.create') }}" class="btn btn-sm btn-primary pull-right" type="button">Tambah Artikel</a>
+     </span>
    </div>
  </div>
- <div class="table-responsive">
-  <table class="table table-striped b-t b-light">
+
+<div class="table-responsive">
+  <table id="articles-table" class="table table-striped b-t b-light">
     <thead>
       <tr>
         <th>No</th>
@@ -55,73 +28,33 @@
         </th>
         <th>Kategori</th>
         <th>Aksi</th>
-
       </tr>
     </thead>
-    <tbody>
-
-      @if($articles)
-      @foreach($articles as $i => $article)
-
-      <tr>
-        <td>{{ $i+1 }}</td>
-        <td>{{ $article->judul }}</td>
-        <td>{{ $article->kategori }}</td>
-        <td><a href="{{ route('artikel.edit', $article->id) }}" class="btn btn-sm btn-primary" type="button"> <i class="fa fa-pencil"></i></a>
-
-        {{-- <form action="{{ route('artikel.destroy', $article->id) }}" method="post" onsubmit="return hapus()">
-          @method('delete')
-          {{ csrf_field() }}
-         <button type="submit" class="btn btn-sm btn-danger" type="button"> <i class="fa fa-trash-o"></i></button>
-       </form> --}}
-
-       <a href="{{ route('artikel.destroy', $article->id) }}" onclick="return hapus()" class="btn btn-sm btn-danger" type="button"> <i class="fa fa-trash-o"></i></a>
-         <a href="{{ route('artikel.show', $article->id) }}" class="btn btn-sm btn-success" type="button"> <i class="fa fa-eye"></i></a></td>
-       </td>
-     </tr>
-
-     @endforeach
-     @endif
-
-   </tbody>
- </table>
+</table>
 </div>
-<footer class="panel-footer">
-  <div class="row">
-    <div class="col-sm-4 hidden-xs">
 
-    </div>
-    <div class="col-sm-4 text-center">
-      <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
-    </div>
-    <div class="col-sm-4 text-right text-center-xs">                
-      <ul class="pagination pagination-sm m-t-none m-b-none">
-        <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
 </section>
+@endsection 
+
+@section('scripts')
+
+<script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
+<script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
 
 <script type="text/javascript">
-
-  function hapus() {
-    var ask = window.confirm("Are you sure you want to delete this?");
-    if (ask) {
-      return true;
-    }else{
-      return false;
-    }
-  }
-
+  $(function() {
+    $('#articles-table').DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: '{{ route('get_artikel_datatable') }}',
+      columns: [
+      {data: 'DT_RowIndex', orderable: false, searchable: false},
+      {data: 'judul'},
+      {data: 'kategori'},
+      {data: 'aksi', orderable: false, searchable: false}
+      ]
+    });
+  });
 </script>
 
-</body>
-</html>
-@endsection 
+@endsection

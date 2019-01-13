@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/asset/css/font-awesome.min.css" type="text/css" />
   <link rel="stylesheet" href="/asset/css/font.css" type="text/css" />
   <link rel="stylesheet" href="/asset/js/calendar/bootstrap_calendar.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="https://datatables.yajrabox.com/css/datatables.bootstrap.css">
   <link rel="stylesheet" href="/asset/css/app.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="js/ie/html5shiv.js"></script>
@@ -400,6 +401,8 @@
   <script src="asset/js/calendar/demo.js"></script>
 
   <script src="asset/js/sortable/jquery.sortable.js"></script>
+
+  @yield('scripts')
 
 </body>
 </html>

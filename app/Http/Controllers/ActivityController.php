@@ -18,7 +18,13 @@ class ActivityController extends Controller
     public function get_datatable()
     {
         // Using Eloquent
-        return Datatables::eloquent(Activity::query())->make(true);
+        return Datatables::eloquent(Activity::query())
+        ->addIndexColumn()
+        ->addColumn('aksi', function(Activity $act) {
+            return view('includes.action_buttons.activity', compact('act'));
+        })
+        ->rawColumns(['aksi'])
+        ->make(true);
     }
 
     public function create()

@@ -75,7 +75,8 @@ Route::group(['middleware' => ['LoginAuth']], function () {
     Route::get('/kegiatan_create', 'ActivityController@create')->name('kegiatan.create');
 
     //routes untuk menampilkan form tambah kegiatan
-    Route::get('/kegiatan/get_datatable', 'ActivityController@get_datatable');
+    Route::get('/kegiatan/get_datatable', 'ActivityController@get_datatable')->name('get_kegiatan_datatable');
+    Route::get('/artikel/get_datatable', 'ArtikelController@get_datatable')->name('get_artikel_datatable');
 
     //route untuk menampilkan kegiatan 
     Route::get('/kegiatan', 'ActivityController@index')->name('kegiatan.index');
@@ -113,7 +114,7 @@ Route::group(['middleware' => ['LoginAuth']], function () {
     //route untuk update artikel 
     Route::patch('/artikel_edit/{artikel}', 'ArtikelController@update')->name('artikel.update');
     //route untuk delete artikel 
-    Route::get('/artikel_delete/{artikel}', 'ArtikelController@destroy')->name('artikel.destroy');
+    Route::delete('/artikel_delete/{artikel}', 'ArtikelController@destroy')->name('artikel.destroy');
 
 
 });
