@@ -73,6 +73,10 @@ Route::group(['middleware' => ['LoginAuth']], function () {
 
     //routes untuk menampilkan form tambah kegiatan
     Route::get('/kegiatan_create', 'ActivityController@create')->name('kegiatan.create');
+
+    //routes untuk menampilkan form tambah kegiatan
+    Route::get('/kegiatan/get_datatable', 'ActivityController@get_datatable');
+
     //route untuk menampilkan kegiatan 
     Route::get('/kegiatan', 'ActivityController@index')->name('kegiatan.index');
     //route untuk menambahkan kegiatan 

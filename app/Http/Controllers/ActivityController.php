@@ -3,14 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 use App\Activity;
+
 
 class ActivityController extends Controller
 {
 	public function index()
     {
-        $activities = Activity::all();
+       // $activities = Activity::all();
     	return view('kegiatan.index', compact('activities'));
+    }
+
+    public function get_datatable()
+    {
+        // Using Eloquent
+        return Datatables::eloquent(Activity::query())->make(true);
     }
 
     public function create()
