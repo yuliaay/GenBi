@@ -22,7 +22,7 @@ class ArtikelController extends Controller
         return Datatables::eloquent(Artikel::query())
         ->addIndexColumn()
         ->addColumn('aksi', function(Artikel $art) {
-            return view('includes.action_buttons.article', compact('art'));
+            return view('includes.action_buttons.article', compact('art'))->render();
         })
         ->rawColumns(['aksi'])
         ->make(true);

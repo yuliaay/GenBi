@@ -21,7 +21,7 @@ class ActivityController extends Controller
         return Datatables::eloquent(Activity::query())
         ->addIndexColumn()
         ->addColumn('aksi', function(Activity $act) {
-            return view('includes.action_buttons.activity', compact('act'));
+            return view('includes.action_buttons.activity', compact('act'))->render();
         })
         ->rawColumns(['aksi'])
         ->make(true);
