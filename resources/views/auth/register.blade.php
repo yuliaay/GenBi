@@ -62,9 +62,22 @@
                         </div>
 
 
+                        <div class="form-group row">
+                            <label for="hak-akses" class="col-md-4 col-form-label text-md-right">Hak Akses</label>
+
+                        <div class="col-md-6">
+                         <select class="form-control" placeholder="Tingkat" name="hak_akses">
+                          <option value="1"> Admin </option>
+                          <option value="2"> Super Admin </option>
+                         </select>
+                        </div>
+                        </div>
+
+
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <a href="{{ route('datapribadi.index') }}" class="btn btn-default">Cancel</a>
+                                <a href="{{ route('datauser.index') }}" class="btn btn-default">Cancel</a>
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>

@@ -7,7 +7,8 @@
 
     <div class="col-md-12">
       <span class="input-group-btn">
-       <a href="{{ route('kegiatan.create') }}" class="btn btn-sm btn-primary pull-right">Tambah Kegiatan</a>
+       <a href="{{ route('kegiatan.create') }}" class="btn btn-sm btn-success pull-right">Tambah Kegiatan</a>
+       <a href="{{ route('download_kegiatan.export') }}" class="btn btn-sm btn-primary pull-right">Download Kegiatan</a>
      </span>
    </div>
 

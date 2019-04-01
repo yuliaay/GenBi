@@ -6,13 +6,14 @@ use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use App\Artikel;
+use Illuminate\Support\Collection;
 
 class ArtikelController extends Controller
 {
     private $allowedExt = ["jpg", "jpeg", "png"];
 
     public function index()
-    {
+    {   
         return view('artikel.index', compact('articles'));
     }
 
@@ -116,6 +117,14 @@ class ArtikelController extends Controller
     }
 
     public function show(Artikel $artikel) {
+
         return view('artikel.show', compact('artikel'));
+        
+    }
+
+     public function all()
+    {
+         $articles = Artikel::orderBy('created_at', 'desc')->get();
+        return view('artikel.all', compact('articles'));
     }
 }

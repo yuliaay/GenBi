@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'hak_akses' => ['required', 'string'],
         ]);
     }
 
@@ -69,8 +70,20 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'hak_akses' => $data['hak_akses'],
         ]);
     }
+
+     protected function update(array $data)
+    {
+        return User::update([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'hak_akses' => $data['hak_akses'],
+        ]);
+    }
+
 
     public function register(Request $request)
     {

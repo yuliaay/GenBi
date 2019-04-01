@@ -169,7 +169,7 @@
                         <div class="form-group">
                           <label class="col-sm-3 control-label">Potensi Diri</label>
                           <div class="col-sm-9">
-                            <label class="control-label">{{ $user->data->potensi_diri }}</label>
+                            <label class="control-label">{{ $user->data->potensi }}</label>
                           </div>
                         </div>
 
@@ -183,7 +183,7 @@
                         <div class="form-group">
                           <label class="col-sm-3 control-label">Aktifitas Sosial</label>
                           <div class="col-sm-9">
-                           <label class="control-label">{{ $user->data->aktifitas_sosial }}</label>
+                           <label class="control-label">{{ $user->data->aktiVitas_sosial }}</label>
                           </div>
                         </div>
                         <div class="line line-dashed line-lg pull-in"></div>

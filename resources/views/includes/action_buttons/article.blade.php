@@ -5,5 +5,5 @@
 	<form method="post" action="{{ route('artikel.destroy',$art->id) }}">
 	{{ csrf_field() }}
 	{{ method_field('delete') }}
-</form>
+	</form>
 </a>

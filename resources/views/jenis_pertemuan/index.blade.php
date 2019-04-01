@@ -10,47 +10,26 @@
 <section class="panel panel-default">
                 
                 <div class="row wrapper">
-                  <div class="col-sm-5 m-b-xs">
-                    <select class="input-sm form-control input-s-sm inline v-middle">
-                      <option value="0">Bulk action</option>
-                      <option value="1">Delete selected</option>
-                      <option value="2">Bulk edit</option>
-                      <option value="3">Export</option>
-                    </select>
-                    <button class="btn btn-sm btn-default">Apply</button>                
-                  </div>
-                  <div class="col-sm-4 m-b-xs">
-                    <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-sm btn-default active">
-                        <input type="radio" name="options" id="option1"> Day
-                      </label>
-                      <label class="btn btn-sm btn-default">
-                        <input type="radio" name="options" id="option2"> Week
-                      </label>
-                      <label class="btn btn-sm btn-default">
-                        <input type="radio" name="options" id="option2"> Month
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
+                  <div class="col-md-12">
                       <span class="input-group-btn">
                          <a href="{{ route('jenispertemuan.create') }}" class="btn btn-sm btn-primary pull-right">Tambah Jenis Pertemuan</a>
                       </span>
                     </div>
                   </div>
                 </div>
-                <div class="table-responsive">
-                  <table class="table table-striped b-t b-light">
+
+                <div class="table">
+                  <table class="table" id="jp-table">
                     <thead>
                       <tr>
                         <th width="20">No</th>
                         <th>Nama Pertemuan</th>
-                        <th>Deskripsi</th>
+                        <th>Deskripsi Pertemuan</th>
                         <th>Aksi</th>
                       </tr>
 
                     </thead>
-                    <tbody>
+<!--                    <tbody>
 
                       @foreach($jenis_pertemuan as $pertemuan)
 
@@ -68,10 +47,10 @@
 
                       @endforeach
                                           
-                    </tbody>
+                    </tbody>-->
                   </table>
                 </div>
-                <footer class="panel-footer">
+<!--                <footer class="panel-footer">
                   <div class="row">
                     <div class="col-sm-4 hidden-xs">
                       
@@ -92,8 +71,29 @@
                       </ul>
                     </div>
                   </div>
-                </footer>
-              </section>
+                </footer> 
+              </section> -->
 </body>
 </html>
 @endsection 
+
+@section('scripts')
+<script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
+<script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#jp-table').DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: '{{ route('get_jenispertemuan_datatable') }}',
+      columns: [
+        {data: 'DT_RowIndex', orderable: false, searchable: false},
+        {data: 'nama_pertemuan'},
+        {data: 'deskripsi_pertemuan'},
+        {data: 'aksi', orderable: false, searchable: false}
+      ]
+    });
+  });
+</script>
+@endsection

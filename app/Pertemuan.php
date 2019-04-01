@@ -11,4 +11,13 @@ class Pertemuan extends Model
     public function jenis_pertemuan(){
     	return $this->belongsTo('\App\JenisPertemuan', 'id_jenis_pertemuan', 'id');
     }
+
+        public function user()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+        public function absensi(){
+        return $this->hasMany('App\Absensi');
+    }
 }

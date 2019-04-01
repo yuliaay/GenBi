@@ -34,6 +34,14 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+  <style type="text/css">
+    a#lht {
+      position: relative;
+      left :43%;
+      text-align: center;
+    }
+
+  </style>
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <!-- Navigation
   ==========================================-->
@@ -69,18 +77,18 @@
               <h1>Komunitas GenBI<br>
               Jambi</h1>
               <p>GenBI (Generasi Baru Bank Indonesia) ialah sebuah komunitas yang terdiri dari beberapa kumpulan mahasiswa dari berbagai universitas pada sebuah wilayah yang terpilih dan menang sebagai penerima beasiswa Bank Indonesia.</p>
-              @if (Route::has('login'))
+              <!--@if (Route::has('login')) -->
 
               @auth
 
-              <p>Hello, {{ Auth::user()->name }}</p>
+              <a href="{{ route('home') }}" class="btn btn-custom btn-lg page-scroll">Home</a> </div>
 
               @else
               <a href="{{ route('login') }}" class="btn btn-custom btn-lg page-scroll">Login</a> </div>
 
               @endauth
 
-              @endif
+            <!--  @endif -->
 
             </div>
           </div>
@@ -145,8 +153,8 @@
             <div class="col-md-4">
               <div class="service-media"> <img src="{{ url('img/artikel/' . $article->gambar) }}" alt=" "> </div>
               <div class="service-desc">
-                <h3>{{ $article->judul }}</h3>
-                <p>{{ $article->konten }}</p>
+                <a href="{{ route('artikel.show', $article->id) }}"><h3>{{ str_limit($article->judul, 50) }}</h3></a>
+                <p>{{ str_limit($article->konten, 200) }}</p>
               </div>
             </div>
 
@@ -157,11 +165,15 @@
 
             {{ $articles->links() }} --}}
 
+
+
           </div>
         </div>
       </div>
+      <a href="{{ route('artikel.all') }}" class="btn btn-custom btn-lg page-scroll" id="lht">Lihat Seluruh Artikel </a> </div>
+      
       <!-- Gallery Section -->
-      <div id="portfolio">
+      <!--<div id="portfolio">
         <div class="container">
           <div class="section-title">
             <h2>Kegiatan</h2>
@@ -252,7 +264,7 @@
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </div> -->
                         <!-- Testimonials Section -->
                         <div id="testimonials">
                           <div class="container">

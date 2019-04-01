@@ -3,9 +3,7 @@
 @section('content')
 
 <section class="panel panel-default">
-  <header class="panel-heading">
-    Responsive Table
-  </header>
+
   <div class="row wrapper">
     <div class="col-md-12">
       <span class="input-group-btn">
@@ -14,7 +12,6 @@
    </div>
  </div>
 
-<div class="table-responsive">
   <table id="articles-table" class="table table-striped b-t b-light">
     <thead>
       <tr>
@@ -31,7 +28,7 @@
       </tr>
     </thead>
 </table>
-</div>
+
 
 </section>
 @endsection 

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use App\Activity;
+use App\Exports\ActivityExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 
 class ActivityController extends Controller
@@ -71,4 +74,10 @@ class ActivityController extends Controller
         $activity->delete();
         return redirect()->route('kegiatan.index');
     }
+
+    public function export() 
+    {
+        return Excel::download(new ActivityExport, 'kegiatan.xlsx');
+    }
+
 }

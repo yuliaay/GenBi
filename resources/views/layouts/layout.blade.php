@@ -25,7 +25,7 @@
         <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
          <!-- <i class="fa fa-bars"></i> -->
         </a>
-        <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="asset/images/logo.png" class="m-r-sm">GenBi</a>
+        <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="/asset/images/logo.png" class="m-r-sm">GenBi</a>
         <!--<a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
           <i class="fa fa-cog"></i>
         </a>-->
@@ -39,7 +39,7 @@
           <section class="dropdown-menu aside-xl on animated fadeInLeft no-borders lt">
             <div class="wrapper lter m-t-n-xs">
               <a href="#" class="thumb pull-left m-r">
-                <img src="images/avatar.jpg" class="img-circle">
+                <img src="/asset/images/avatar.jpg" class="img-circle">
               </a>
               <div class="clear">
                 <a href="#"><span class="text-white font-bold">@Mike Mcalidek</a></span>
@@ -130,7 +130,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <span class="thumb-sm avatar pull-left">
-              <img src="asset/images/avatar.jpg">
+              <img src="{{ asset('asset/images/avatar.jpg') }}">
             </span>
             Yulia Oktaviani <b class="caret"></b>
           </a>
@@ -212,9 +212,41 @@
                     </li>
                     @endif
                     
+                    @if(Auth::user()->hak_akses >= 1)
+                    <li>
+                      <a href="#uikit">
+                        <i class="fa fa-user">
+                          <b class="bg-primary dker"></b>
+                        </i>
+                        <span class="pull-right">
+                          <i class="fa fa-angle-down text"></i>
+                          <i class="fa fa-angle-up text-active"></i>
+                        </span>
+                        <span>Data User</span>
+                      </a>
+                      <ul class="nav lt">
+
+                        <li >
+                          <a href="{{ route('datauser.index') }}">                                             
+                            <i class="fa fa-angle-right"></i>
+                            <span>Admin GenBi</span>
+                          </a>
+                        </li>
+
+                        <li >
+                          <a href="{{ route('datauser.index_genbi') }}" >            
+                            <i class="fa fa-angle-right"></i>
+                            <span>Anggota GenBi</span>
+                          </a>
+                        </li>
+
+
+                      </ul>
+                      </li>
+                      @endif
 
                     <li>
-                      <a href="#uikit"  >
+                      <a href="#uikit">
                         <i class="fa fa-file-text icon">
                           <b class="bg-primary dker"></b>
                         </i>
@@ -252,26 +284,37 @@
                         </li>
 
                         <li >
-                          <a href="grid.html" >                                                        
+                          <a href="{{ route('rekap_absensi.index') }}" >                                                         
                             <i class="fa fa-angle-right"></i>
                             <span>Kehadiran</span>
                           </a>
                         </li>
-                        <li >
+                       <!-- <li>
                           <a href="widgets.html" >                            
                             <b class="badge  pull-right">8</b>                                                        
                             <i class="fa fa-angle-right"></i>
                             <span>Rekap Kehadiran</span>
                           </a>
-                        </li>
+                        </li> -->
                         @endif
                       </ul>
                       </li>
 
 
-                    @if(!Auth::user()->hak_akses >= 1)
+                    @if(Auth::user()->hak_akses >= 1)
                     <li >
                       <a href="{{ route('prestasi.index') }}">
+                        <i class="fa fa-cloud">
+                          <b class="bg-success"></b>
+                        </i>
+                        <span>Prestasi GenBi</span>
+                      </a>
+                    </li>
+                    @endif
+
+                    @if(!Auth::user()->hak_akses >= 1)
+                    <li >
+                      <a href="{{ route('prestasi.index_id') }}">
                         <i class="fa fa-cloud">
                           <b class="bg-success"></b>
                         </i>
@@ -304,16 +347,7 @@
                     </li>
                     @endif
 
-                    @if(Auth::user()->hak_akses >= 1)
-                    <li >
-                      <a href="{{ route('register') }}">
-                        <i class="fa fa-user">
-                          <b class="bg-info"></b>
-                        </i>
-                        <span>Tambah User</span>
-                      </a>
-                    </li>
-                    @endif
+
                     
 
                   </ul>
@@ -382,25 +416,25 @@
       </section>
     </section>
   </section>
-  <script src="asset/js/jquery.min.js"></script>
+  <script src="/asset/js/jquery.min.js"></script>
   <!-- Bootstrap -->
-  <script src="asset/js/bootstrap.js"></script>
+  <script src="/asset/js/bootstrap.js"></script>
   <!-- App -->
-  <script src="asset/js/app.js"></script>
-  <script src="asset/js/app.plugin.js"></script>
-  <script src="asset/js/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="asset/js/charts/easypiechart/jquery.easy-pie-chart.js"></script>
-  <script src="asset/js/charts/sparkline/jquery.sparkline.min.js"></script>
-  <script src="asset/js/charts/flot/jquery.flot.min.js"></script>
-  <script src="asset/js/charts/flot/jquery.flot.tooltip.min.js"></script>
-  <script src="asset/js/charts/flot/jquery.flot.resize.js"></script>
-  <script src="asset/js/charts/flot/jquery.flot.grow.js"></script>
-  <script src="asset/js/charts/flot/demo.js"></script>
+  <script src="/asset/js/app.js"></script>
+  <script src="/asset/js/app.plugin.js"></script>
+  <script src="/asset/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/asset/js/charts/easypiechart/jquery.easy-pie-chart.js"></script>
+  <script src="/asset/js/charts/sparkline/jquery.sparkline.min.js"></script>
+  <script src="/asset/js/charts/flot/jquery.flot.min.js"></script>
+  <script src="/asset/js/charts/flot/jquery.flot.tooltip.min.js"></script>
+  <script src="/asset/js/charts/flot/jquery.flot.resize.js"></script>
+  <script src="/asset/js/charts/flot/jquery.flot.grow.js"></script>
+  <script src="/asset/js/charts/flot/demo.js"></script>
 
-  <script src="asset/js/calendar/bootstrap_calendar.js"></script>
-  <script src="asset/js/calendar/demo.js"></script>
+  <script src="/asset/js/calendar/bootstrap_calendar.js"></script>
+  <script src="/asset/js/calendar/demo.js"></script>
 
-  <script src="asset/js/sortable/jquery.sortable.js"></script>
+  <script src="/asset/js/sortable/jquery.sortable.js"></script>
 
   @yield('scripts')
 

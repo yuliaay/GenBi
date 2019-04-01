@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 use App\JenisPertemuan;
 use App\Pertemuan;
 use App\Absensi;
@@ -18,29 +19,71 @@ class PertemuanController extends Controller
     	return view('jenis_pertemuan.index', compact('jenis_pertemuan'));
     }
 
+    public function get_datatable()
+    {
+        // Using Eloquent
+        return Datatables::eloquent(JenisPertemuan::query())
+        ->addIndexColumn()
+        ->addColumn('aksi', function(JenisPertemuan $jp) {
+            return view('includes.action_buttons.jenispertemuan', compact('jp'))->render();
+        })
+        ->rawColumns(['aksi'])
+        ->make(true);
+    }
+
+
+    public function get_datatable_pertemuan()
+    {
+        // Using Eloquent
+        $query = Pertemuan::select('pertemuans.*');
+
+        return Datatables::eloquent($query)
+        ->addIndexColumn()
+        ->editColumn('id_pertemuan', function($query) {
+            return $query->jenis_pertemuan->nama_pertemuan;
+        })
+        ->addColumn('aksi', function(Pertemuan $p) {
+            return view('includes.action_buttons.pertemuan', compact('p'))->render();
+        })
+        ->rawColumns(['aksi'])
+        ->make(true);
+    }
+
     public function createJenis()
     {
         return view('jenis_pertemuan.create');
     }
 
-    public function editJenis(JenisPertemuan $jenis_pertemuan){
-    
-        return view('jenis_pertemuan.edit', compact('jenis_pertemuan'));
+    public function editJenis(JenisPertemuan $jenis_pertemuan)
+    {
+        return view('jenispertemuan.edit', compact('jenis_pertemuan'));
     }
 
     public function updateJenis(JenisPertemuan $jenis_pertemuan){
         
         $jenis_pertemuan->update([
             'nama_pertemuan' => request('nama_pertemuan'),
+            'deskripsi_pertemuan' => request('deskripsi_pertemuan'),
         ]);
 
-        return redirect()->route('jenis_pertemuan.index');
+        return redirect()->route('jenispertemuan.index');
     }
 
     public function destroyJenis(JenisPertemuan $jenis_pertemuan)
     {
         $jenis_pertemuan->delete();
-        return redirect()->route('jenis_pertemuan.index');
+        return redirect()->route('jenispertemuan.index');
+    }
+
+    public function storeJenis()
+    {
+        JenisPertemuan::create([
+            'nama_pertemuan' => request('nama_pertemuan'),
+            'deskripsi_pertemuan' => request('deskripsi_pertemuan')
+        ]);
+
+        return redirect()->route('jenispertemuan.index');
+
     }
 
     //kelola pertemuan

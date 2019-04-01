@@ -24,8 +24,8 @@
                   </div>
                 </div>
 
-                <div class="tablse-responsive">
-                  <table class="table table-striped b-t b-light">
+                <div class="table">
+                  <table class="table" id="p-table">
                     <thead>
                       <tr>
                         <th width="20">No</th>
@@ -42,28 +42,10 @@
                         <th>Aksi</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      @foreach ($pertemuans as $pertemuan)
-                      <tr>
-                        
-                        <td>1</td>
-                        <td>{{ $pertemuan->tanggal_pertemuan }}</td>
-                        <td>{{ $pertemuan->pertemuan }}</td>
-                        <td>{{ $pertemuan->jenis_pertemuan->nama_pertemuan }}</td>
-                        <td>{{ $pertemuan->tempat }}</td>
-                        <td><a href="" class="btn btn-sm btn-primary"> <i class="fa fa-pencil"></i></a>
-                        <form class="" action="" method="post">
-                          <button class="btn btn-sm btn-danger" type="SUBMIT"> <i class="fa fa-trash-o"></i></button>
-                        </form>
-                        </td>
-                        
-                      </tr>
-                      @endforeach                      
-                      
-                    </tbody>
+                    
                   </table>
                 </div>
-                <footer class="panel-footer">
+               <!-- <footer class="panel-footer">
                   <div class="row">
                     <div class="col-sm-4 hidden-xs">
                       
@@ -84,8 +66,31 @@
                       </ul>
                     </div>
                   </div>
-                </footer>
+                </footer>-->
               </section>
 </body>
 </html>
 @endsection 
+
+@section('scripts')
+<script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
+<script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#p-table').DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: '{{ route('get_pertemuan_datatable') }}',
+      columns: [
+        {data: 'DT_RowIndex', orderable: false, searchable: false},
+        {data: 'tanggal_pertemuan'},
+        {data: 'pertemuan'},
+        {data: 'id_pertemuan'},
+        {data: 'tempat'},
+        {data: 'aksi', orderable: false, searchable: false}
+      ]
+    });
+  });
+</script>
+@endsection
